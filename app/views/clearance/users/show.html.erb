@@ -5,6 +5,11 @@
 <div class="jumbotron text-center">
 <h1> Welcome to Your Profile </h1>
 
+<div class="avatar">
+	<%=image_tag current_user.avatar%>
+</div>
+<br>
+
 <p>
 	<strong>First name:</strong>
 	<%=current_user.first_name%>
