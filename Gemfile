@@ -6,6 +6,8 @@ gem 'omniauth-facebook'
 
 gem 'clearance'
 
+gem 'simple_form_fancy_uploads'
+
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
