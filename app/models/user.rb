@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-class User<ActiveRecord::Base
-=======
 class User <ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   mount_uploader :avatar, AvatarUploader
->>>>>>> c6fafbbf2ff491350125b373c8b159c849d57b75
   include Clearance::User
 
   def self.create_with_auth_and_hash(authentication,auth_hash)
