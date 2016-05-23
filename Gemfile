@@ -6,6 +6,8 @@ gem 'omniauth-facebook'
 
 gem 'clearance'
 
+gem 'simple_form_fancy_uploads'
+
 gem 'figaro'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
