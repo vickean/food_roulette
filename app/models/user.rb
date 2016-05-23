@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User <ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
 
   include Clearance::User
