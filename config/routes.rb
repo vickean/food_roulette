@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :restaurants 
+  resources :users, only: [] do
+    resources :restaurants
+  end
 
    # You can have the root of your site routed with "root"
    root 'welcome#index'

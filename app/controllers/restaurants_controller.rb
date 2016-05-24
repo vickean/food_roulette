@@ -1,17 +1,18 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurant= Restaurant.all 
+    @restaurant= Restaurant.all
   end
 
   def new
-    @restaurant = Restaurant.new 
+      @restaurant = Restaurant.new
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save 
-      redirect_to restaurant_path(@restaurant)
-    else 
+    @restaurant.user_id = current_user.id
+    if @restaurant.save
+      redirect_to user_restaurant_path(current_user, @restaurant)
+    else
       flash[:warning] = "Invalid input"
       render :new
   end
@@ -29,8 +30,8 @@ class RestaurantsController < ApplicationController
      @restaurant = Restaurant.find(params[:id])
 
      if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant)
-     else 
+      redirect_to user_restaurant_path(current_user, @restaurant)
+     else
      flash[:warning] = "Invalid input"
       render :edit
   end
