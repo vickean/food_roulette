@@ -12,17 +12,21 @@
 <% if signed_in? %>
   Signed in as: <%= current_user.email %>
   <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% if current_user.user_type == 1 || current_user.user_type == 2 %>
+      <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
+      <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+    <% end %>
 <% else %>
   <%= link_to 'Sign in', sign_in_path %>
   <%= link_to 'Signup with Facebook', '/auth/facebook' %>
 <% end %>
+
+
 <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
     </div>
-
-
 
 <%= yield %>
 

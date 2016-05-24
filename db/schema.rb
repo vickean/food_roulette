@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523103055) do
+ActiveRecord::Schema.define(version: 20160524084043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,35 @@ ActiveRecord::Schema.define(version: 20160523103055) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "number_of_people"
+    t.text     "party_name"
+    t.datetime "datetime"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.integer  "preferer_id"
+    t.integer  "preferee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "no_of_guest"
+    t.integer  "no_of_guests"
     t.integer  "price_per_person"
-    t.string   "photo"
+    t.string   "picture"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -38,23 +61,27 @@ ActiveRecord::Schema.define(version: 20160523103055) do
     t.integer  "price_tier"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.integer  "day_active"
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "email",                                      null: false
+    t.string   "encrypted_password", limit: 128,             null: false
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
+    t.string   "remember_token",     limit: 128,             null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
     t.string   "avatar"
     t.text     "description"
-    t.integer  "low_spin_num"
-    t.integer  "med_spin_num"
-    t.integer  "hi_spin_num"
+    t.integer  "user_type",                      default: 0
+    t.integer  "spin_num"
+    t.text     "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
