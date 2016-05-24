@@ -14,16 +14,16 @@
 				Restaurant Description:
 			</th>
 			<th>
-				Price per person: 
+				Price per person:
 			</th>
 			<th>
-				Number of Guest: 
+				Number of Guest:
 			</th>
 			<th>
 				Address:
 			</th>
 			<th>
-				contact_number: 
+				contact_number:
 			</th>
 			<th>
 				latitude:
@@ -32,7 +32,7 @@
 				longitude:
 			</th>
 			<th>
-				Price tier: 
+				Price tier:
 			</th>
 			<th>
 		</tr>
@@ -70,7 +70,13 @@
 			<td>
 				<%=r.price_tier %>
 			</td>
+
+			<%= link_to 'Show', user_restaurant_path(current_user, r) %>
+
+			<%= link_to 'Edit', edit_user_restaurant_path(current_user, r) %>
+
+			<%= link_to 'Destroy', user_restaurant_path(current_user, r), method: :delete, data: { confirm: 'Are you sure?' } %>
 		</tr>
 		<%end%>
-		
+
 </table>
