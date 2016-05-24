@@ -1,0 +1,76 @@
+<h1>Restaurants#index</h1>
+<p>Find me in app/views/restaurants/index.html.erb</p>
+
+<table class="table table-hover table-condensed table-responsive">
+	<thead>
+		<tr>
+			<th>
+				Id:
+			</th>
+			<th>
+				Restaurant Name:
+			</th>
+			<th>
+				Restaurant Description:
+			</th>
+			<th>
+				Price per person: 
+			</th>
+			<th>
+				Number of Guest: 
+			</th>
+			<th>
+				Address:
+			</th>
+			<th>
+				contact_number: 
+			</th>
+			<th>
+				latitude:
+			</th>
+			<th>
+				longitude:
+			</th>
+			<th>
+				Price tier: 
+			</th>
+			<th>
+		</tr>
+	</thead>
+	<tbody>
+			<% @restaurant.each do |r| %>
+		<tr>
+			<td>
+				<%=r.id %>
+			</td>
+			<td>
+				<%=r.name %>
+			</td>
+			<td>
+				<%=r.description %>
+			</td>
+			<td>
+				<%=r.price_per_person%>
+			</td>
+			<td>
+				<%=r.no_of_guest %>
+			</td>
+			<td>
+				<%=r.address %>
+			</td>
+			<td>
+				<%=r.contact_number %>
+			</td>
+			<td>
+				<%=r.latitude %>
+			</td>
+			<td>
+				<%=r.longitude %>
+			</td>
+			<td>
+				<%=r.price_tier %>
+			</td>
+		</tr>
+		<%end%>
+		
+</table>
