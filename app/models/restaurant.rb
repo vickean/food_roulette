@@ -1,4 +1,6 @@
 class Restaurant < ActiveRecord::Base
+	belongs_to :user
+	has_many :parties
 	validates :name, presence: true
 	validates :description, presence: true
 	validates :no_of_guest, presence: true

@@ -31,6 +31,12 @@
 </p>
 
 <p>
+	<strong>Location:</strong>
+	<%= current_user.address %><br>
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{current_user.latitude}%2C#{current_user.longitude}" %>
+</p>
+
+<p>
 
 </div>
 </div>
