@@ -2,7 +2,40 @@
   <h2><%= t(".title") %></h2>
 
   <%= form_for @user do |form| %>
-    <%= render partial: 'clearance/users/form', object: form %>
+    <div class="name-field">
+      <%= form.label :first_name, "First_name" %>
+      <%= form.text_field :first_name %>
+    </div>
+
+    <div class="name-field">
+      <%= form.label :last_name, "Last_name" %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="gender-field">
+      <%= form.label :gender, "Gender" %>
+      <%= form.select :gender, [['Male', 'M'], ['Female', 'F']] %>
+    </div>
+
+    <div class="text-field">
+      <%= form.label :email %>
+      <%= form.text_field :email, type: 'email' %>
+    </div>
+
+    <div class="image-field">
+      <%= form.label :picture %>
+      <%= form.file_field :avatar %>
+    </div>
+
+    <div class="text-field">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
+
+    <div class="text-field">
+      <%= form.label :city %>
+      <%= form.text_field :city %>
+    </div>
 
     <div class="submit-field">
       <%= form.submit %>

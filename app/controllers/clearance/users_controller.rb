@@ -1,5 +1,4 @@
 class Clearance::UsersController < ApplicationController
-
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:create, :new]
     skip_before_action :require_login, only: [:create, :new], raise: false
@@ -37,6 +36,7 @@ class Clearance::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.address = "#{@user.address}, #{@user.city}"
     if @user.update(permit_params)
       redirect_to @user
     else
@@ -86,6 +86,6 @@ class Clearance::UsersController < ApplicationController
 
 
   def permit_params
-    params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :avatar, :address, :city)
   end
 end
