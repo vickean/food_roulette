@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>FoodRoulette</title>
+   
+ 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,6 +35,6 @@
 <% end %>
 
 <%= yield %>
-
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 </body>
 </html>
