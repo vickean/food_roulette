@@ -10,8 +10,6 @@ def index
   end
 
 
-
-
   def create
 
   	@num_token = params[:payment][:num_token].to_i
@@ -23,6 +21,7 @@ def index
     # reserve to save the transaction details into database
     if result.success?
     	flash[:success] = 'Payment done!'
+      current_user.update(spin_num: @num_token)
     	redirect_to root_path
     
     else

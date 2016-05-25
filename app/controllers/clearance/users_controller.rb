@@ -27,6 +27,7 @@ class Clearance::UsersController < ApplicationController
   end
 
   def show
+  
    @user = User.find(params[:id])
    # @user = User.new(params[:user])
  end
