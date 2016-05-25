@@ -11,7 +11,30 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
+
+
+$(document).ready(function(){
+
+	/* toggle menu button on wrapper-text */
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".sidebar-nav").toggleClass("hide");
+        $(".sidebar-menu").toggleClass("show");
+    }) 
+
+    
+    /* hidden toggle menu button function */
+    $("#menu-toggle-2").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".sidebar-nav").toggleClass("hide");
+        $(".sidebar-menu").toggleClass("show");
+    })
+
+});

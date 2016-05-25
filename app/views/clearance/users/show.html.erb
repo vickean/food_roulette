@@ -1,42 +1,44 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<div class="container">
-<div class="jumbotron text-center">
-<h1> Welcome to Your Profile </h1>
+<div class="container-fluid">
+	<!-- <div class="jumbotron text-center"> -->
+	<!-- jumbrotron container start -->
+		<h1> Welcome to Your Profile </h1>
 
-<div class="avatar">
-	<%=image_tag current_user.avatar%>
-</div>
-<br>
+			<div class="avatar">
+				<%=image_tag current_user.avatar%>
+			</div>
+		<br>
 
-<p>
-	<strong>First name:</strong>
-	<%=current_user.first_name%>
-</p>
+		<p>
+			<strong>First name:</strong>
+			<%=current_user.first_name%>
+		</p>
 
-<p>
-	<strong>Last name:</strong>
-	<%=current_user.last_name%>
-</p>
+		<p>
+			<strong>Last name:</strong>
+			<%=current_user.last_name%>
+		</p>
 
-<p>
-	<strong>Email:</strong>
-	<%=current_user.email%>
-</p>
+		<p>
+			<strong>Email:</strong>
+			<%=current_user.email%>
+		</p>
 
-<p>
-	<strong>Gender:</strong>
-	<%=current_user.gender%>
-</p>
+		<p>
+			<strong>Gender:</strong>
+			<%=current_user.gender%>
+		</p>
 
-<p>
-	<strong>Location:</strong>
-	<%= current_user.address %><br>
-	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{current_user.latitude}%2C#{current_user.longitude}" %>
-</p>
+		<p>
+			<strong>Location:</strong>
+			<%= current_user.address %><br>
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{current_user.latitude}%2C#{current_user.longitude}" %>
+		</p>
 
-<p>
+		<p>
 
-</div>
+	<!-- </div> -->
+	<!-- end of jumbotron container -->
 </div>

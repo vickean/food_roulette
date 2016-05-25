@@ -2,28 +2,88 @@
 <html>
 <head>
   <title>FoodRoulette</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
 
+<!-- Simple sidebar code -->
+
+
+<div id="wrapper" >
+  <div id="sidebar-wrapper">
+     <div class="sidebar-menu">
+        <a href="#menu-toggle-2" id="menu-toggle-2"><img src=""></a>
+      </div>
+
+
+      <ul class="sidebar-nav">
+
+
+        <li class="sidebar-brand">
+          <%= link_to "Home", root_path %>
+        </li>
+
+        <li>
+          <a href="#">Spin now</a>
+        </li>
+
+        <li>
+          <a href ="#">Profile</a>
+        </li>
+
+        <li>
+          <a href ="#">Settings</a>
+        </li>
+
+        <li>
+           <a href="#menu-toggle" id="menu-toggle">Toggle Menu</a>
+        </li>
+
+      </ul>
+</div>
+<!-- end of Simple Sidebar code -->
+     
+<div id="page-content-wrapper">
+  <div class="container-fluid">
 <% if signed_in? %>
-  Signed in as: <%= current_user.email %>
-  <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% if current_user.user_type == 1 %>
-      <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
-      <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
-      <% elsif current_user.user_type == 2 %>
-      <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
-      <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
-      <%= link_to 'All the listing', restaurants_path %>
-      <% else %>
-      <%= link_to 'My Profile', user_path(current_user) %>
-      <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-    <% end %>
+
+    <div class="row header">
+      <div class="col-sm-4">
+        Signed in as: <%= current_user.email %>
+      </div>
+      <div class="col-sm-2">
+        <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      </div>
+
+      <!-- If current user is restaurant owner -->
+        <% if current_user.user_type == 1 %>
+          <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
+          <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+
+      <!-- If current user is admin -->
+          <% elsif current_user.user_type == 2 %>
+          <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
+          <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+          <%= link_to 'All the listing', restaurants_path %>
+          <% else %>
+
+      <!-- If current user is user -->
+       <div class="col-sm-2">
+          <%= link_to 'My Profile', user_path(current_user) %>
+       </div>
+       <div class="col-sm-3">
+          <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+        </div>
+        <% end %>
+   </div>
 <% else %>
+
+  <!-- If user is not signed in -->
   <%= link_to 'Sign in', sign_in_path %>
   <%= link_to 'Signup with Facebook', '/auth/facebook' %>
 <% end %>
@@ -32,7 +92,15 @@
   <p class='alert alert-<%= key %>'><%= value %></p>
 <% end %>
 
+</div>
+<!-- end of container-fluid -->
+
+</div>
+<!-- end of page-content-wrapper -->
+
 <%= yield %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
 </html>

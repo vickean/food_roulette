@@ -1,4 +1,10 @@
-<h1>Welcome#index</h1>
+<div class="container-fluid">
+Welcome#index
 <p>Find me in app/views/welcome/index.html.erb</p>
 
-<%=@welcome%>
+	<!-- Clickable image with a class -->
+     <%= link_to '/' do %>
+        <%= image_tag('avatar.jpg', :class => "testimage")  %>
+     <% end %>
+
+</div>
