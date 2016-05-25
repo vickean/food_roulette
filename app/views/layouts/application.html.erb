@@ -19,6 +19,9 @@
       <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
       <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
       <%= link_to 'All the listing', restaurants_path %>
+      <% else %>
+      <%= link_to 'My Profile', user_path(current_user) %>
+      <%= link_to 'Edit Profile', edit_user_path(current_user) %>
     <% end %>
 <% else %>
   <%= link_to 'Sign in', sign_in_path %>
