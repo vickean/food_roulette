@@ -4,6 +4,7 @@ class User <ActiveRecord::Base
   has_many :bookings
   has_many :parties, through: :bookings
   mount_uploader :avatar, AvatarUploader
+
   include Clearance::User
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
