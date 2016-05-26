@@ -9,6 +9,12 @@ resources :payments, only: [:new, :create, :index]
     resources :restaurants
   end
 
+  resources :parties
+
+  resources :parties, only:[] do
+    resources :bookings
+  end
+
   resources :restaurants, only: [:index]
    # You can have the root of your site routed with "root"
    root 'welcome#index'
