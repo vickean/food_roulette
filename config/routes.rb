@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :parties
 
+  resources :parties, only:[] do
+    resources :bookings
+  end
+
   resources :restaurants, only: [:index]
    # You can have the root of your site routed with "root"
    root 'welcome#index'

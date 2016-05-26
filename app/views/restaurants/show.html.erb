@@ -1,7 +1,6 @@
 <h1>Restaurants#show</h1>
 <p>Find me in app/views/restaurants/show.html.erb</p>
 
-
 <div style="padding-bottom: 100px">
 
 <h4>Id:<%=@restaurant.id %></h4>
@@ -14,3 +13,5 @@
 <h4>longitude:<%=@restaurant.longitude%></h4>
 <h4>contact_number:<%=@restaurant.contact_number%></h4>
 <h4>price_tier:<%=@restaurant.price_tier%></h4>
+
+<%= link_to 'Edit Listing', edit_user_restaurant_path(current_user, @restaurant) %>
