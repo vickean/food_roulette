@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160525051502) do
-=======
-ActiveRecord::Schema.define(version: 20160525104103) do
->>>>>>> master
+
+ActiveRecord::Schema.define(version: 20160526071947) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160525104103) do
   create_table "preferences", force: :cascade do |t|
     t.integer  "preferer_id"
     t.integer  "preferee_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "prefer",      default: false
   end
 
   create_table "restaurants", force: :cascade do |t|
