@@ -6,7 +6,11 @@
 <h1> Welcome to Your Profile </h1>
 
 <div class="avatar">
-	<%=image_tag current_user.avatar%>
+	<% if current_user.avatar != nil %>
+		<%=image_tag current_user.avatar%>
+	<% else %>
+		<img src="images/empty_avatar.png">
+	<% end %>
 </div>
 <br>
 
@@ -31,12 +35,20 @@
 </p>
 
 <p>
+<<<<<<< HEAD
 	<strong>number of spins:</strong>
 	<%= current_user.spin_num %>
 </p>
 
 
 
+=======
+	<strong>Location:</strong>
+	<%= current_user.address %><br>
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{current_user.latitude}%2C#{current_user.longitude}" %>
+</p>
+
+>>>>>>> master
 <p>
 
 </div>

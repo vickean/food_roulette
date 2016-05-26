@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body data-no-turbolink="true">
 
 <% if signed_in? %>
   Signed in as: <%= current_user.email %>
@@ -24,6 +24,7 @@
       <% else %>
       <%= link_to 'My Profile', user_path(current_user) %>
       <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+      <%= link_to 'Meet New Friends', new_party_path %>
     <% end %>
 <% else %>
   <%= link_to 'Sign in', sign_in_path %>
