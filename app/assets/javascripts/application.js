@@ -37,4 +37,9 @@ $(document).ready(function(){
         $(".sidebar-menu").toggleClass("show");
     })
 
+
+    $("img").click(function(){
+        $(this).toggleClass("spin")
+    });
+
 });

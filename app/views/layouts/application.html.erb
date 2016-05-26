@@ -25,7 +25,9 @@
 
 
         <li class="sidebar-brand">
-          <%= link_to "Home", root_path %>
+          <%= link_to root_path do %>
+            <%= image_tag('minilogo.png') %>
+          <% end %>
         </li>
 
         <li>
@@ -48,11 +50,10 @@
 </div>
 <!-- end of Simple Sidebar code -->
      
-<div id="page-content-wrapper">
-  <div class="container-fluid">
+  <div class="container-fluid headerstyle">
 <% if signed_in? %>
 
-    <div class="row header">
+    <div class="row">
       <div class="col-sm-4">
         Signed in as: <%= current_user.email %>
       </div>
@@ -74,10 +75,10 @@
 
       <!-- If current user is user -->
        <div class="col-sm-2">
-          <%= link_to 'My Profile', user_path(current_user) %>
+          <%= button_to 'My Profile', user_path(current_user), :class => "btn btn-primary" %>
        </div>
        <div class="col-sm-3">
-          <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+          <%= button_to 'Edit Profile', edit_user_path(current_user), :class => "btn btn-primary"%>
         </div>
         <% end %>
    </div>
@@ -94,9 +95,6 @@
 
 </div>
 <!-- end of container-fluid -->
-
-</div>
-<!-- end of page-content-wrapper -->
 
 <%= yield %>
 
