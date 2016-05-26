@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+resources :payments, only: [:new, :create, :index]
+
+
+
+
   resources :users, only: [] do
     resources :restaurants
   end

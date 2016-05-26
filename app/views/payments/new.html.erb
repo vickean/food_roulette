@@ -1,0 +1,40 @@
+<h1>Payments#new</h1>
+<p>Find me in app/views/payments/new.html.erb</p>
+
+
+<%= form_for(Payment.new) do |f| %>
+	 
+
+  	
+  	</div>
+	  <div class="field">
+	    <div id="dropin"></div>
+	  </div>
+
+	 <div>
+	 	<%= f.hidden_field :num_token, value: params[:num_token]%>
+
+	 	<%= f.submit "Pay now" %>
+	 </div>
+ <%end%>
+
+
+
+<script type="text/javascript">
+  function setupBT() {
+    braintree.setup("<%= @client_token %>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+
+</script>
+
+
+
+

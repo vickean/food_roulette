@@ -2,3 +2,6 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 <%=@welcome%>
+
+<%=button_to "Spin", payments_path, method:"get", data: {'no-turbolink' => true} %>
+

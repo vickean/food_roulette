@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'braintree'
+
 gem 'omniauth'
 
 gem 'omniauth-facebook'
