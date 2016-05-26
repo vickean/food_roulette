@@ -21,25 +21,26 @@ class PartiesController < ApplicationController
   	lat = current_user.latitude
   	long = current_user.longitude
   	spin = current_user.spin_num
-  	date = Party.new(party_params).datetime.to_date
-  	if @party = Party.check_party(lat, long, spin, date)
-  		byebug
-  		flash.now[:success] = 'Congratulations. The party is available'
-  		redirect_to @party
-    elsif @restaurant = Restaurant.near([lat,long],10, order: false).pluck(:id)[0]
-    	@party = Party.find_by(restaurant_id: @restaurant) do |x|
-    		byebug
-    		y = Restaurant.find(@restaurant)
-    		x.number_of_people = y.no_of_guests
-    		x.party_name = "dolphin"
-    		x.datetime = DateTime.now
-    	end
+		new_party = Party.new(party_params)
+  	date = new_party.datetime.to_date
+		byebug
 
+  	if @party = Party.select_random_party(lat, long, spin, date)
+			if @party.double_booked?(current_user)
+				flash[:danger] = 'You are already booked into this party.'
+			else
+				@party.users << current_user
+  			flash[:success] = 'Congratulations. The party is available'
+			end
+  		redirect_to @party
+
+    elsif @restaurant = Restaurant.near([lat,long],1, order: false).affordable(spin).sample
+    	@party = @restaurant.parties.create(number_of_people: 1, party_name: 'dolphin', datetime: date)
+			@party.users << current_user
 
     	redirect_to @party
     else
-    	byebug
-      flash.now[:danger] = 'Sorry, there is no matching around your area'
+      flash[:danger] = 'Sorry, there is no matching around your area'
       redirect_to '/'
     end
   end

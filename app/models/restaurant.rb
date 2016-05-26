@@ -9,7 +9,7 @@ class Restaurant < ActiveRecord::Base
 	validates :contact_number, presence: true
 	validates :price_tier, presence: true
 	geocoded_by :address
-	reverse_geocoded_by :latitude, :longitude
 	after_validation :geocode, :if => :address_changed?
-	after_validation :reverse_geocode
+
+	scope :affordable, -> (spin) { where('price_tier < ?', spin)}
 end
