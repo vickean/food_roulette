@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :restaurants, only: [:index]
+  resources :party
    # You can have the root of your site routed with "root"
    root 'welcome#index'
 

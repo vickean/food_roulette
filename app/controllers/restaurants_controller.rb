@@ -65,7 +65,7 @@ end
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :no_of_guest, :price_per_person,:address, :latitude,:longitude,:contact_number ,:price_tier,{photo:[]})
+    params.require(:restaurant).permit(:name, :description, :no_of_guests, :price_per_person,:address, :latitude,:longitude,:contact_number ,:price_tier,{photo:[]})
   end
 end
 

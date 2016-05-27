@@ -1,5 +1,5 @@
 class PartyController < ApplicationController
-	before_action :find_party, only: [:show, :edit, :update, :destroy]
+	before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
   	 @user = User.find(params[:user_id])
@@ -22,7 +22,6 @@ class PartyController < ApplicationController
 
   	if current_user.spin_num
 
-
       if @reservation.save
         reservation1 = @reservation.id
          # ReservationMailer.booking_email(@customer, @host, @reservation1).deliver_later
@@ -34,6 +33,8 @@ class PartyController < ApplicationController
         flash[:danger] = 'Reservation error'
         redirect_to(:back)
       end
+    end
+  end
 
   def update
     if @reservation.update(party_params)
@@ -54,6 +55,6 @@ class PartyController < ApplicationController
 
 	private
   def party_params
-    params.require(:party).permit(:restaurant_id, :)
+    params.require(:party).permit(:restaurant_id, :party_id)
   end
 end
