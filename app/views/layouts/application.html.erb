@@ -3,10 +3,11 @@
 <head>
   <link href="http://pics.clipartpng.com/midle/Casino_Roulette_PNG_Clipart-1028.png">
   <title>FoodRoulette</title>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -15,23 +16,94 @@
 <%= link_to 'Home', root_path %>
 <%=button_to "Buy Spins!", payments_path, method:"get", data: {'no-turbolink' => true} %><br>
 
+
+<!-- Simple sidebar code -->
+<div id="wrapper" >
+  <div id="sidebar-wrapper">
+     <div class="sidebar-menu">
+        <a href="#menu-toggle-2" id="menu-toggle-2"><img src=""></a>
+      </div>
+
+
+      <ul class="sidebar-nav">
+
+
+        <li class="sidebar-brand">
+          <%= link_to root_path do %>
+            <%= image_tag('minilogo.png') %>
+          <% end %>
+        </li>
+
+        <li>
+          <a href="#">Spin now</a>
+        </li>
+
+        <% if signed_in? %>
+        <li>
+          <a href ="#">Profile</a>
+        </li>
+
+        <li>
+          <a href ="#">Settings</a>
+        </li>
+
+        <% else %>
+
+        <li>
+          <a href="#">Log in</a>
+        </li>
+
+        <li>
+          <a href="#">Sign up</a>
+        </li>
+        <% end %>
+
+        <li>
+           <a href="#menu-toggle" id="menu-toggle">Toggle Menu</a>
+        </li>
+
+      </ul>
+</div>
+<!-- end of Simple Sidebar code -->
+     
+<div class="container-fluid headerstyle">
 <% if signed_in? %>
-  Signed in as: <%= current_user.email %>
-  <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% if current_user.user_type == 1 %>
-      <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
-      <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
-      <% elsif current_user.user_type == 2 %>
-      <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
-      <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
-      <%= link_to 'All the listing', restaurants_path %>
-      <% else %>
-      <%= link_to 'My Profile', user_path(current_user) %>
-      <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-      <%= link_to 'Meet New Friends', new_party_path %>
-    <% end %>
+
+    <div class="row">
+      <div class="col-sm-4">
+        Signed in as: <%= current_user.email %>
+      </div>
+      <div class="col-sm-2">
+        <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      </div>
+
+      <!-- If current user is restaurant owner -->
+        <% if current_user.user_type == 1 %>
+          <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
+          <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+
+      <!-- If current user is admin -->
+          <% elsif current_user.user_type == 2 %>
+          <%= link_to 'Create a restaurant listing', new_user_restaurant_path(current_user) %>
+          <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+          <%= link_to 'All the listing', restaurants_path %>
+          <% else %>
+
+      <!-- If current user is user -->
+       <div class="col-sm-2">
+          <%= link_to 'My Profile', user_path(current_user)%>
+       </div>
+       <div class="col-sm-3">
+          <%= link_to 'Edit Profile', edit_user_path(current_user)%>
+        </div>
+        <% end %>
+   </div>
+
 <% else %>
+
+  <!-- If user is not signed in -->
   <%= link_to 'Sign in', sign_in_path %>
+  <%= link_to 'Sign up', sign_up_path %>
   <%= link_to 'Signup with Facebook', '/auth/facebook' %>
 <% end %>
 
@@ -39,7 +111,15 @@
   <p class='alert alert-<%= key %>'><%= value %></p>
 <% end %>
 
+</div>
+<!-- end of container-fluid -->
+
+
+
 <%= yield %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 </body>
 </html>
