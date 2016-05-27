@@ -75,10 +75,10 @@
 
       <!-- If current user is user -->
        <div class="col-sm-2">
-          <%= button_to 'My Profile', user_path(current_user), :class => "btn btn-primary" %>
+          <%= link_to 'My Profile', user_path(current_user), :class => "btn btn-default" %>
        </div>
        <div class="col-sm-3">
-          <%= button_to 'Edit Profile', edit_user_path(current_user), :class => "btn btn-primary"%>
+          <%= link_to 'Edit Profile', edit_user_path(current_user), :class => "btn btn-default"%>
         </div>
         <% end %>
    </div>
@@ -86,6 +86,7 @@
 
   <!-- If user is not signed in -->
   <%= link_to 'Sign in', sign_in_path %>
+  <%= link_to 'Sign up', sign_up_path %>
   <%= link_to 'Signup with Facebook', '/auth/facebook' %>
 <% end %>
 
