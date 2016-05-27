@@ -1,3 +1,56 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* roulette */
+
+@-moz-keyframes spin { 100% {-moz-transform: rotate(1080deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(1080deg); } }
+@keyframes spin { 100% {transform: rotate(1080deg); } }
+
+#roulette{
+	width:500px;
+	height:500px;
+	margin: 30px 10px 50px 10px;
+	align: center;
+}
+
+.spin {
+
+	-webkit-animation:spin 4s ease 1;
+	-moz-animation:spin 4s ease 1;
+	animation:spin 4s ease 1;
+}
+
+
+/* fonts*/
+
+.col-md-12 {
+	text-align: center;
+
+}
+
+#title {
+	font-size: 30px;	
+	font-color: #393939;
+}
+
+
+
+#subtitle a:link, a:hover, a:visited{
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#subtitle a:link{
+	color: #9f9f9f;
+}
+
+#subtitle a:hover{
+	color: #fa8d23;
+}
+
+#subtitel a:visited{
+	color: #ffa943;
+}

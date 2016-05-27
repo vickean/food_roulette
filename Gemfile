@@ -12,6 +12,8 @@ gem 'simple_form_fancy_uploads'
 
 gem 'figaro'
 
+gem 'bootstrap-sass'
+
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
