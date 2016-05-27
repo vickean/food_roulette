@@ -23,7 +23,6 @@ class PartiesController < ApplicationController
   	spin = current_user.spin_num
 		new_party = Party.new(party_params)
   	date = new_party.datetime.to_date
-		byebug
 
   	if @party = Party.select_random_party(lat, long, spin, date)
 			if @party.double_booked?(current_user)
