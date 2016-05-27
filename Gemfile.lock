@@ -51,9 +51,14 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+<<<<<<< HEAD
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+=======
+    braintree (2.62.0)
+      builder (>= 2.0.0)
+>>>>>>> master
     builder (3.2.2)
     byebug (9.0.4)
     clearance (1.14.1)
@@ -121,6 +126,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.4)
+    puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -143,6 +149,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -195,7 +206,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap-sass
+=======
+  braintree
+>>>>>>> master
   byebug
   carrierwave!
   clearance
@@ -208,7 +223,9 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg (~> 0.15)
+  puma
   rails (= 4.2.6)
+  rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form_fancy_uploads

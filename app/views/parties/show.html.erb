@@ -1,0 +1,56 @@
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+<p></p>
+
+<h1>My Party</h1>
+<h4>Id:<%= @party.id %></h4>
+<h4>Restaurant Name:<%=@party.restaurant.name %></h4>
+<h4>Restaurant Latitude:<%=@party.restaurant.latitude %></h4>
+<h4>Restaurant Longitude:<%=@party.restaurant.longitude %></h4>
+<h4>Restaurant Address:<%=@party.restaurant.address %></h4>
+<h4>Restaurant contact number:<%=@party.restaurant.contact_number %></h4>
+<div style='overflow:hidden;height:500px;width:800px;'>
+  <div id='gmap_canvas' style='height:500px;width:800px;'></div>
+  <style>#gmap_canvas img{
+    max-width:none!important;
+    background:none!important
+    }
+  </style>
+</div>
+
+
+<%= link_to "Don't like this party ? You can spin it again!!", new_party_path %>
+
+<%= link_to "This is what I want !!", new_party_booking_path(@party) %><br>
+
+<% @ppl_in_party = Booking.where(party_id: @party.id) %>
+<% @ppl_in_party.each do |x| %>
+	<%= User.find(x.user_id).first_name %><br>
+<% end %>
+
+
+<%= javascript_tag do %>
+
+  function init_map(){
+
+    var myOptions = {
+      zoom:17,center:new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+  map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+
+  marker = new google.maps.Marker({
+    map: map,position: new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>)
+  });
+
+  infowindow = new google.maps.InfoWindow({
+    content:'<strong><%= @party.restaurant.name %></strong><br><%= @party.restaurant.address %><br>'
+  });
+
+  google.maps.event.addListener(marker, 'click', function(){
+    infowindow.open(map,marker);
+  });
+
+  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+
+<% end %>

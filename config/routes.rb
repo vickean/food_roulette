@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
 
+resources :payments, only: [:new, :create, :index]
+
+
+
+
   resources :users, only: [] do
     resources :restaurants
+  end
+
+  resources :parties
+
+  resources :parties, only:[] do
+    resources :bookings
   end
 
   resources :restaurants, only: [:index]

@@ -1,4 +1,5 @@
 
+
 <div id="page-content-wrapper">
 
 	<% if signed_in? %>
@@ -21,3 +22,8 @@
 	<% end %>
 
 </div>
+
+<%=@welcome%>
+
+<%=button_to "Buy Spins!", payments_path, method:"get", data: {'no-turbolink' => true} %>
+

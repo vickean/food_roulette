@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 restaurant_list = [
 	["Ministry of Fish Head Curry","Seafood restaurant","8","15","Menara Glomac","3.100249","101.592005","03-7733 9656","1","1"],
 	["Bruno's Pizza Bar","We celebrate the italian way of life buon appetito","8","30","Glo Glomac","3.100249","101.592005","03-77336044","2","1"],
@@ -24,4 +27,8 @@ restaurant_list = [
 restaurant_list.each do |name, description, no_of_guests, price_per_person,address,latitude,longitude,contact_number,price_tier,day_active|
 	Restaurant.create(name: name, description: description, no_of_guests: no_of_guests, price_per_person: price_per_person,address: address,latitude: latitude,longitude: longitude,contact_number:contact_number, price_tier: price_tier,day_active: day_active)
 
+<<<<<<< HEAD
 end 
+=======
+end 
+>>>>>>> master

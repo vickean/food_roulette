@@ -43,7 +43,7 @@ end
   def destroy
      @restaurant = Restaurant.find(params[:id])
      @restaurant.destroy
-     redirect_to restaurant_path
+     redirect_to restaurants_path
   end
 
   def authorize_user
@@ -68,6 +68,3 @@ end
     params.require(:restaurant).permit(:name, :description, :no_of_guests, :price_per_person,:address, :latitude,:longitude,:contact_number ,:price_tier,{photo:[]})
   end
 end
-
-
-

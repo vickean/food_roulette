@@ -1,6 +1,7 @@
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+
 <h1>Restaurants#show</h1>
 <p>Find me in app/views/restaurants/show.html.erb</p>
-
 
 <div style="padding-bottom: 100px">
 
@@ -8,7 +9,7 @@
 <h4>Restaurant Name:<%=@restaurant.name %></h4>
 <h4>Restaurant Description:<%=@restaurant.description %></h4>
 <h4>price_per_person:<%=@restaurant.price_per_person %></h4>
-<h4>no_of_guest:<%=@restaurant.no_of_guest %></h4>
+<h4>no_of_guests:<%=@restaurant.no_of_guests %></h4>
 <h4>address:<%=@restaurant.address %></h4>
 <h4>latitude:<%=@restaurant.latitude %></h4>
 <h4>longitude:<%=@restaurant.longitude%></h4>
@@ -16,5 +17,42 @@
 <h4>price_tier:<%=@restaurant.price_tier%></h4>
 
 
+<div style='overflow:hidden;height:500px;width:800px;'>
+  <div id='gmap_canvas' style='height:500px;width:800px;'></div>
+  <style>#gmap_canvas img{
+    max-width:none!important;
+    background:none!important
+    }
+  </style>
+</div>
 
 
+
+<%= javascript_tag do %>
+
+  function init_map(){
+
+    var myOptions = {
+      zoom:17,center:new google.maps.LatLng(<%= @restaurant.latitude %>,<%= @restaurant.longitude %>),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+  map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+
+  marker = new google.maps.Marker({
+    map: map,position: new google.maps.LatLng(<%= @restaurant.latitude %>,<%= @restaurant.longitude %>)
+  });
+
+  infowindow = new google.maps.InfoWindow({
+    content:'<strong><%= @restaurant.name %></strong><br><%= @restaurant.address %><br>'
+  });
+
+  google.maps.event.addListener(marker, 'click', function(){
+    infowindow.open(map,marker);
+  });
+
+  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+
+<% end %>
+
+<%= link_to 'Edit Listing', edit_user_restaurant_path(current_user, @restaurant) %>

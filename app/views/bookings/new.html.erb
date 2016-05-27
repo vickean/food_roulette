@@ -1,0 +1,5 @@
+<%= form_for(@booking, url: party_bookings_path(params[:party_id])) do |t| %>
+	<div class="submit-field">
+     <%= t.submit"Book it now. I like the party !!", class:"btn btn-primary" %>
+	</div>
+<% end %>

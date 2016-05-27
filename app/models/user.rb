@@ -4,6 +4,8 @@ class User <ActiveRecord::Base
   has_many :bookings
   has_many :parties, through: :bookings
   mount_uploader :avatar, AvatarUploader
+  before_save :default_values
+
   include Clearance::User
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
@@ -28,4 +30,7 @@ class User <ActiveRecord::Base
     true
   end
 
+  def default_values
+    self.spin_num ||= 0
+  end
 end
