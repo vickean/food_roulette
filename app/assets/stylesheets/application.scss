@@ -18,9 +18,9 @@
 @import "users";
 @import "welcome";
 @import "restaurants";
-@import "party";
+// @import "party";
 
-/* 
+/*
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 */
 
@@ -28,4 +28,16 @@
 .headerstyle {
 	background-color: #CECECE;
 	padding :10px;
+}
+
+.jumbotron {
+	height: 100vh;
+	background: transparent;
+}
+
+body {
+	background: url("/assets/pattern.png");
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
 }

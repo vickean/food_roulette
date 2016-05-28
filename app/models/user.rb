@@ -30,6 +30,14 @@ class User <ActiveRecord::Base
     true
   end
 
+  def restaurant_owner?
+    user_type == 1
+  end
+
+  def admin?
+    user_type == 2
+  end
+
   def default_values
     self.spin_num ||= 0
   end

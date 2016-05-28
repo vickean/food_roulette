@@ -1,12 +1,9 @@
 <h1>Payments#new</h1>
 <p>Find me in app/views/payments/new.html.erb</p>
 
-
-<%= form_for(Payment.new) do |f| %>
-	 
-
-  	
-  	</div>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<%= form_for @payment do |f| %>
 	  <div class="field">
 	    <div id="dropin"></div>
 	  </div>
@@ -16,9 +13,9 @@
 
 	 	<%= f.submit "Pay now" %>
 	 </div>
- <%end%>
-
-
+<%end%>
+</div>
+<div class="col-md-4"></div>
 
 <script type="text/javascript">
   function setupBT() {
@@ -26,7 +23,6 @@
       container: 'dropin'
     });
   }
-
   if (window.addEventListener)
     window.addEventListener("load", setupBT, false);
   else if (window.attachEvent)
@@ -34,7 +30,3 @@
   else window.onload = setupBT;
 
 </script>
-
-
-
-

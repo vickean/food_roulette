@@ -6,7 +6,6 @@ def index
   def new
   	@client_token = Braintree::ClientToken.generate
     @payment = Payment.new
-
   end
 
 

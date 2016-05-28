@@ -7,7 +7,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-			    		<img src="assets/spinningwheel600.png" class="">
+			    		<img src="assets/spinwheel.png" class="">
 			    	</div>
 			    	<div class="col-md-12" id="title">Do you feel <font weight="bold" color="#fab623">LUCKY?</font></div>
 			    	<div class="col-md-12" id="subtitle"><a href="#">How does it work?</a></div>
@@ -17,13 +17,23 @@
 
 	<% else %>
 
-		<h1>User has nt yet signed in</h1> 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <img src="assets/spinwheel.png" class="">
+          </div>
+          <div class="col-md-12" id="title">Do you feel <font weight="bold" color="#fab623">LUCKY?</font></div>
+          <div class="col-md-12" id="subtitle"><a href="#">How does it work?</a></div>
+					<div>
+        		<%= link_to 'Sign in to spin!!', sign_in_path, class:"btn btn-primary btn-lg"%>
+					</div>
+        </div>
+      </div>
+  </div>
+
 
 	<% end %>
 
 </div>
 
 <%=@welcome%>
-
-<%=button_to "Buy Spins!", payments_path, method:"get", data: {'no-turbolink' => true} %>
-
