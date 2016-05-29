@@ -15,10 +15,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "simple-sidebar";
-@import "users";
-@import "welcome";
-@import "restaurants";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+/* roulette */
+
+@-moz-keyframes spin { 100% {-moz-transform: rotate(1080deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(1080deg); } }
+@keyframes spin { 100% {transform: rotate(1080deg); } }
+
+@-moz-keyframes welcomespin { 100% {-moz-transform: rotate(360deg); } }
+@-webkit-keyframes welcomespin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes welcomespin { 100% {transform: rotate(360deg); } }
+
+#roulette{
+	width:500px;
+	height:500px;
+	margin: 30px 10px 50px 10px;
+	align: center;
+}
+
+.welcomespin {
+
+	-webkit-animation:welcomespin 10s linear infinite;
+	-moz-animation:welcomespin 10s linear infinite;
+	animation:welcomespin 10s linear infinite;
+}
+
+.spin {
+
+	-webkit-animation:spin 4s ease 1;
+	-moz-animation:spin 4s ease 1;
+	animation:spin 4s ease 1;
+}
+
+
+
+#title {
+	font-size: 30px;
+	font-color: #393939;
+}
+
+
 
 /* application.html header style */
 .headerstyle {

@@ -38,9 +38,14 @@ $(document).ready(function(){
     })
 
 
-    $("img").click(function(){
+    $("spinner").click(function(){
         $(this).toggleClass("spin")
     });
 
-
+		$("#roulette").click(function(){
+       $(this).toggleClass("spin");
+       setTimeout(function(){
+           $('#party_form').submit();
+       }, 4002);
+   	});
 });

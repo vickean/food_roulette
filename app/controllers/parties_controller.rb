@@ -21,8 +21,8 @@ class PartiesController < ApplicationController
   	lat = current_user.latitude
   	long = current_user.longitude
   	spin = current_user.spin_num
-		new_party = Party.new(party_params)
-  	date = new_party.datetime.to_date
+		# new_party = Party.new(party_params)
+  	date = DateTime.now.to_date
 
   	if @party = Party.select_random_party(lat, long, spin, date)
 			if @party.double_booked?(current_user)
@@ -108,9 +108,9 @@ class PartiesController < ApplicationController
   end
 
 	private
-  def party_params
-    params.require(:party).permit(:restaurant_id, :datetime)
-  end
+  # def party_params
+  #   params.require(:party).permit(:restaurant_id)
+  # end
 
   def location_range
 

@@ -1,6 +1,17 @@
-<p>Spin the roulette to meet someone !!</p>
+<h2> Eat Food, Meet People, Make Friends</h2>
 
-<%= form_for @party do |f| %>
-  <%= f.date_select :datetime %>
-  <%= f.submit "Spin" %>
+<%= form_for @party, html: { id: 'party_form' } do |f| %>
+     <p></p>
+     <% f.submit "Spin The Wheel Now" %>
 <% end %>
+<div id="page-content-wrapper">
+       <div class="container-fluid">
+           <div class="row">
+               <div class="col-md-12">
+                   <%= image_tag('spinwheel.png', id:"roulette") %>
+               </div>
+               <div class="col-md-12" id="title"><font weight="bold" color="#fab623 ">Click the wheel above to Spin!</font></div>
+           </div>
+       </div>
+   </div>
+</div>
