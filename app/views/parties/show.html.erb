@@ -1,18 +1,18 @@
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="padding-bottom:50px;">
       <div  class="col-md-8 col-md-offset-2">
         <div id='gmap_canvas' style='height:500px;'></div>
         <style>#gmap_canvas img{
           max-width:none!important;
-          background:none!important
+          background:none!important;
           }
         </style>
       </div>
     </div>
   </div>
-</div>
+
 <%= javascript_tag do %>  function init_map(){    var myOptions = {
     zoom:17,center:new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>),
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -22,37 +22,39 @@
   content:'<strong><%= @party.restaurant.name %></strong><br><%= @party.restaurant.address %><br>'
 });  google.maps.event.addListener(marker, 'click', function(){
   infowindow.open(map,marker);
-});  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);<% end %> <div class="container">
+});  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);<% end %>
+<div class="container">
     <div class="row">
         <div class="col-lg-6">
            <div class="well">
                <h2 class="muted">Your Party Details</h2>
-               <p><span class="label label-success">NEARBY RESTAURANT</span></p>
                <ul>
-           <br>
-                            <p><h4><%=@party.restaurant.name %></h4></p>
-                            <br>
-                            <p><h4><%=@party.restaurant.address %></h4></p>
-                            <br>
+                 <br>
+                <p><h4><%=@party.restaurant.name %></h4></p>
+                <br>
+                <p><h4><%=@party.restaurant.address %></h4></p>
+                <br>
                </ul>
-               <hr>
                <h3><span class="label label-info">Time: 7.00pm</span> </h3>
-               <hr>
+               <%= form_for [@party, @booking] do |t| %>
+                <div class="submit-field">
+                   <%= t.submit"Booking Details", class:"btn btn-success btn-lg btn-block" %>  </div>
+               <% end %>
            </div>
        </div>
        <div class="col-lg-6">
            <div class="well">
                <h2 class="muted">Party Members</h2>
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-   <div class="carousel-inner">
+   <div class="carousel-inner" style="height: 288px">
      <% @ppl_in_party = Booking.where(party_id: @party.id) %>
      <% @ppl_in_party.each.with_index do |x, index| %>
      <% if index == 0 %>
-      <div class="item active">
+      <div class="item active" style="height: 288px">
      <% else %>
-      <div class='item'>
+      <div class='item' style="height: 288px">
       <% end %>
-      <%= image_tag("spinningwheel600.png")%>
+      <%= image_tag("temp_avatar.png")%>
            <div class= "carousel-caption">
              <div style="height:50px;background-color:rgba(0,0,0,0.5);">
                <h3><%= User.find(x.user_id).first_name%></h3>
@@ -64,8 +66,12 @@
    </div>
    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div><div>
-</div><%= form_for [@party, @booking] do |t| %>
- <div class="submit-field">
-    <%= t.submit"Booking Details", class:"btn btn-success btn-lg btn-block" %>  </div>
-<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>

@@ -26,9 +26,9 @@ $(document).ready(function(){
         $("#wrapper").toggleClass("toggled");
         $(".sidebar-nav").toggleClass("hide");
         $(".sidebar-menu").toggleClass("show");
-    }) 
+    })
 
-    
+
     /* hidden toggle menu button function */
     $("#menu-toggle-2").click(function(e) {
         e.preventDefault();
@@ -41,5 +41,6 @@ $(document).ready(function(){
     $("img").click(function(){
         $(this).toggleClass("spin")
     });
+
 
 });

@@ -1,5 +1,5 @@
 <h1>Payments#new</h1>
-<p>Find me in app/views/payments/new.html.erb</p>
+
 
 <div class="col-md-4"></div>
 <div class="col-md-4">
@@ -11,7 +11,7 @@
 	 <div>
 	 	<%= f.hidden_field :num_token, value: params[:num_token]%>
 
-	 	<%= f.submit "Pay now" %>
+	 	<%= f.submit "Pay now", class:"btn btn-primary btn-lg"%>
 	 </div>
 <%end%>
 </div>

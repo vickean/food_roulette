@@ -65,7 +65,7 @@
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    padding-bottom: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -124,7 +124,7 @@
 
 /* If window is 768px, hide nav */
 
-@media(min-width:768px) {
+/*@media(min-width:768px) {
     #wrapper {
         padding-left: 200px;
     }
@@ -150,4 +150,4 @@
         position: relative;
         margin-right: 0;
     }
-}
+}*/

@@ -14,33 +14,99 @@
     </div>
 <% end %>
 
-  <%= f.label :name %><br />
-  <%= f.text_area :name %><br />
+<!-- Form Name -->
+<legend>Create Restaurant Listing Here</legend>
 
-  <%= f.label :description %><br />
-  <%= f.text_area :description %><br />
+<!-- Text input-->
+<form role="form" class = "form-inline">
+   <label class="col-md-5 control-label">
+     <div class="col-md-7 col-md-offset-12">
 
-  <%= f.label :no_of_guests %><br />
-  <%= f.select :no_of_guests,[[1],[2],[3],[4],[5],[6],[7],[8]] %><br />
+<fieldset>
 
-  <%= f.label :price_per_person %><br />
-  <%= f.text_area :price_per_person %><br />
 
-  <%= f.label :address %><br />
-  <%= f.text_area :address %><br />
 
-  <%= f.label :latitude %><br />
-  <%= f.text_area :latitude %><br />
+   <div class="form-group">
 
-  <%= f.label :longitude %><br />
-  <%= f.text_area :longitude %><br />
 
-   <%= f.label :contact_number %><br />
-  <%= f.text_area :contact_number %><br />
+  <%= f.label :name , class: "col-md-10 control-label"  %>
+  <%= f.text_field :name, class: "col-sm-10 control-label", placeholder: 'name' %>
 
-   <%= f.label :price_tier %><br />
-  <%= f.text_area :price_tier %><br />
+  </div>
 
-  <%= f.submit %>
+  <div class="form-group">
+
+
+  <%= f.label :description , class: "col-md-10 control-label"  %>
+  <%= f.text_field :description, class: "col-sm-10 control-label", placeholder: 'description' %>
+
+  </div>
+
+  <div class="form-group">
+
+
+  <%= f.label :no_of_guests , class: "col-md-10 control-label"  %>
+  <%= f.select :no_of_guests,[[1],[2],[3],[4],[5],[6],[7],[8]], class: "col-sm-10 control-label" %>
+
+  </div>
+
+  <div class="form-group">
+
+
+  <%= f.label :price_per_person , class: "col-md-10 control-label"  %>
+  <%= f.text_field :price_per_person, class: "col-sm-10 control-label", placeholder: 'price_per_person' %>
+
+  </div>
+
+   <div class="form-group">
+
+
+  <%= f.label :address , class: "col-md-10 control-label"  %>
+  <%= f.text_field :address, class: "col-sm-10 control-label", placeholder: 'address' %>
+
+  </div>
+
+
+   <div class="form-group">
+
+
+  <%= f.label :latitude , class: "col-md-10 control-label"  %>
+  <%= f.text_field :latitude, class: "col-sm-10 control-label", placeholder: 'latitude' %>
+
+  </div>
+
+   <div class="form-group">
+
+
+  <%= f.label :longitude , class: "col-md-10 control-label"  %>
+  <%= f.text_field :longitude, class: "col-sm-10 control-label", placeholder: 'longitude' %>
+
+  </div>
+
+    <div class="form-group">
+
+
+  <%= f.label :contact_number , class: "col-md-10 control-label"  %>
+  <%= f.text_field :contact_number, class: "col-sm-10 control-label", placeholder: 'contact_number' %>
+
+  </div>
+
+      <div class="form-group">
+
+
+  <%= f.label :price_tier , class: "col-md-10 control-label"  %>
+  <%= f.text_field :price_tier, class: "col-sm-10 control-label", placeholder: 'price_tier' %><br>
+
+  </div>
+
+<br>
+
+  <%= f.submit class: "btn-primary btnressubmit "%>
+
+
 
 <% end %>
+
+ </fieldset>
+
+  </form>

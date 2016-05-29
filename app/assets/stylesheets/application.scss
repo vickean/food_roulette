@@ -37,6 +37,7 @@ body {
 	height: 100%;
 	width: 100%;
 	font-family: 'Roboto', sans-serif;
+	color: grey;
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -55,6 +56,14 @@ body {
 	margin-top: 15vh;
 }
 
+.blk-bg {
+	background-color: black;
+}
+
+.icon-center {
+	margin-top: 10px;
+	margin-left: 5px;
+}
 // beh's stuff
 
 .form-signin {
@@ -154,4 +163,9 @@ body {
 87.5%, #62c2e4
 87.5%, #62c2e4
 );
+}
+
+// nicole's stuff
+.btnressubmit{
+    margin-top:20px;
 }

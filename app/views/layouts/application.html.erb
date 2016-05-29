@@ -13,14 +13,17 @@
  <body data-no-turbolink="true">
 </head><!-- Simple sidebar code --><div id="wrapper">
  <div id="sidebar-wrapper">
-    <div class="sidebar-menu">
-       <a href="#menu-toggle-2" id="menu-toggle-2"><img src="assets/minilogo.png"></a>
-     </div>
-     <ul class="sidebar-nav">
+    <div class="sidebar-menu show blk-bg">
+      <a href="menu-toggle" id="menu-toggle"><%= image_tag("minilogo.png")%></a>
+    </div>
+     <ul class="sidebar-nav hide">
        <li class="sidebar-brand">
-         <%= link_to root_path do %>
-           <%= image_tag('minilogo.png') %>
-         <% end %>
+         <a href="#menu-toggle-2" id="menu-toggle-2"><%=image_tag("minilogo.png")%></a>
+       </li>
+
+       <li>
+         <%= link_to 'Home', root_path %>
+       </li>
        </li>
        <% if signed_in? %>
          <li>
@@ -51,7 +54,7 @@
                </li>
        <% else %>
              <li>
-               <%= link_to 'Meet More Friends', new_party_path %>
+               <%= link_to 'SPIN!', new_party_path %>
              </li>
              <li>
                <%= link_to 'My Profile', user_path(current_user) %>
@@ -63,10 +66,7 @@
                <%=link_to 'Buy Spin Token', payments_path, method:"get", data: {'no-turbolink' => true} %>
              </li>
              <li>
-                # insert link here.
-             </li>
-             <li>
-                <a href="#menu-toggle" id="menu-toggle">Toggle Menu</a>
+                <%= link_to 'My Current Party', party_path(Booking.where(user_id:current_user.id).last.party_id) %>
              </li>
        <% end %>
      </ul>

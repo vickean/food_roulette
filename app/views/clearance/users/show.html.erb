@@ -14,7 +14,7 @@
 	<% if current_user.avatar != nil %>
 		<%=image_tag current_user.avatar%>
 	<% else %>
-		<img src="images/empty_avatar.png">
+		<%=image_tag("empty_avatar.png")%>
 	<% end %>
 </div>
 <br>
