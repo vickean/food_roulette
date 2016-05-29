@@ -14,6 +14,8 @@ gem 'figaro'
 
 gem 'bootstrap-sass'
 
+gem 'font-awesome-sass'
+
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

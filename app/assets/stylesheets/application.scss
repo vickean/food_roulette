@@ -15,7 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "simple-sidebar";
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 
 /* roulette */
@@ -27,6 +30,287 @@
 @-moz-keyframes welcomespin { 100% {-moz-transform: rotate(360deg); } }
 @-webkit-keyframes welcomespin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes welcomespin { 100% {transform: rotate(360deg); } }
+
+// stuff for signed in welcome padding-to-center
+
+
+/*                                                        */
+
+.bg-light-gray{
+
+  background-color:#f5f5f5;
+
+}
+
+/*                                                        */
+
+/* index page full width image*/
+
+/*                                                        */
+
+.img-center {
+
+    margin: 0 auto;
+
+}
+
+section {
+
+   padding: 30px 0;
+
+   font-family:'Roboto Slab', serif;
+
+}
+
+.section-heading {
+
+   margin: 30px 0;
+
+   font-size: 4em;
+
+}
+
+.section-lead {
+
+   margin: 30px 0;
+
+}
+
+.section-paragraph {
+
+   margin: 30px 0;
+
+}
+
+.image-bg-fluid-height {
+
+   text-align: center;
+
+   -webkit-background-size: cover;
+
+   -moz-background-size: cover;
+
+   background-size: cover;
+
+   -o-background-size: cover;
+
+   height:500px;
+
+      background: url("http://i.imgur.com/1GwdEj8.jpg") no-repeat center center scroll;
+
+   padding: 100px 0;
+
+}
+
+/* if signed in/ not signed in */
+
+.img-bg-signed-in {
+
+  height: 800px;
+
+}
+
+.img-btn-box {
+
+  margin-top:50px;
+
+}
+
+#img-btn-sign-in{
+
+}
+
+#img-btn-sign-up{
+
+}
+
+/*                                                        */
+
+/* Food Roulette How it Works section */
+
+/*                                                        */
+
+section{padding:60px 0}
+
+section h2.section-heading{
+
+    font-family:"Roboto Slab",Helvetica,Arial,sans-serif;
+
+    font-size:40px;
+
+    margin-top:0;
+
+    margin-bottom:15px;
+
+}
+
+section h3.section-subheading{
+
+  font-size:16px;
+
+  font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  text-transform:none;
+
+  font-style:italic;
+
+  font-weight:400;
+
+  margin-bottom:75px;
+
+  }
+
+.text-muted{color:#777}
+
+.text-primary{color:#fed136}
+
+p{
+
+    font-size:14px;
+
+    line-height:1.75;
+
+}
+
+p.large{font-size:16px}
+
+a,a:hover,a:focus,a:active,a.active{outline:0}
+
+a{color:#fed136}
+
+a:hover,a:focus,a:active,a.active{color:#fec503}
+
+/*                                                        */
+
+/* About us section */
+
+/*                                                        */
+
+.team-member{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.team-member img{
+
+    margin:0 auto;
+
+    border:7px
+
+    solid #fff;
+
+}
+
+.team-member h4{
+
+    margin-top:10px;
+
+    margin-bottom:0;
+
+    text-transform:none;
+
+}
+
+.team-member p{
+
+    margin-top:0;
+
+}
+
+/*                                                        */
+
+/* Social buttons highlight */
+
+/*                                                        */
+
+ul.social-buttons{
+
+    margin-bottom:0
+
+}
+
+ul.social-buttons li a{
+
+    display:block;
+
+    background-color:#222;
+
+    height:40px;
+
+    width:40px;
+
+    border-radius:100%;
+
+    font-size:20px;
+
+    line-height:40px;
+
+    color:#fff;outline:0;
+
+    -webkit-transition:all .3s;
+
+    -moz-transition:all .3s;
+
+    transition:all .3s;
+
+}
+
+ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
+
+    background-color:#fed136
+
+}
+
+.btn:focus,.btn:active,.btn.active,.btn:active:focus{
+
+    outline:0
+
+}
+
+/*                                                        */
+
+/* Footer*/
+
+/*                                                        */
+
+footer{
+
+    padding:20px 0;
+
+    text-align:center;
+
+}
+
+footer span.copyright{
+
+    line-height:40px;
+
+    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    text-transform:uppercase;
+
+    text-transform:none;
+
+}
+
+footer ul.quicklinks{
+
+    margin-bottom:0;
+
+    line-height:40px;
+
+    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    text-transform:uppercase;
+
+    text-transform:none;
+
+}
+
+
 
 #roulette{
 	width:500px;

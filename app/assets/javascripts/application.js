@@ -37,7 +37,6 @@ $(document).ready(function(){
         $(".sidebar-menu").toggleClass("show");
     })
 
-
     $("spinner").click(function(){
         $(this).toggleClass("spin")
     });
