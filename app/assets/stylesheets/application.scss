@@ -31,6 +31,22 @@
 @-webkit-keyframes welcomespin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes welcomespin { 100% {transform: rotate(360deg); } }
 
+
+.signedin {
+ background: url(image_path("")) no-repeat center center scroll;
+}/* if signed in/ not signed in */
+.img-bg-signed-in {
+ height: 800px;
+}.img-btn-box {
+ margin-top:60px;
+}
+#img-btn{
+ font-family : 'Roboto Slab', san-serif;
+ color: white;
+}
+
+.spinner {}
+
 // stuff for signed in welcome padding-to-center
 
 

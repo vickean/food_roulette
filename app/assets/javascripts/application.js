@@ -37,9 +37,9 @@ $(document).ready(function(){
         $(".sidebar-menu").toggleClass("show");
     })
 
-    $("spinner").click(function(){
-        $(this).toggleClass("spin")
-    });
+		$(".spinner").click(function(){
+           $(this).toggleClass("spin");
+       });
 
 		$("#roulette").click(function(){
        $(this).toggleClass("spin");

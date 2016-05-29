@@ -2,18 +2,87 @@
 
 <div id="page-content-wrapper" class="welcome-center">
 
-	<div class="image-bg-fluid-height">
-			<%= image_tag("foodroulette-logo.png") %>
-		 <img class="img-responsive img-center" src="" alt="">
- </div>
+	<% if signed_in? %>
+
+    <div class="image-bg-fluid-height img-bg-signed-in">
+
+       <div class="row">
+
+        <%= image_tag("spinwheel.png", :class =>"spinner") %>
+
+     </div>
+
+     <div class="row">
+
+     <div class="col-sm-6 col-sm-offset-3">
+
+        <button style="margin-top:20px;"class="btn btn-warning btn-lg">
+
+            <%= link_to 'Spin the Wheel', new_party_path, :id =>"img-btn" %>
+
+        </button>
+
+    </div>
+
+    </div>
+
+    </div>
+
+<% else %>
+
+    <div class="image-bg-fluid-height">
+
+        <div class="row">
+
+        <%= image_tag("foodroulette-logo.png") %>
+
+        </div>
+
+        <div class="row">
+
+         <div class="col-sm-4 col-sm-offset-4 img-btn-box">
+
+            <div class="col-sm-4">
+
+            <button class="btn btn-success btn-lg">
+
+            <%= link_to 'Sign in', sign_in_path, :id =>"img-btn"%>
+
+            </button>
+
+            </div>
+
+            <div class="col-sm-1">
+
+            <h3 style="color:#f3f3f3;margin:3px;padding-top:3px;"> OR </h3>
+
+            </div>
+
+            <div class="col-sm-7">
+
+            <button class="btn btn-primary btn-lg">
+
+            <%= link_to 'Sign up', sign_up_path, :id => "img-btn" %>
+
+            </button>
+
+            </div>
+
+       </div>
+
+       </div>
+
+   </div>
+
+<% end %>
 <!-- Content Section -->
  <section>
 		 <div class="container">
 				 <div class="row">
 						 <div class="col-lg-12">
-								 <h1 class="section-heading text-center">Description</h1>
-								 <p class="lead section-lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								 <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+								 <h1 class="section-heading text-center" style="color:orange;">Hi there!</h1>
+								 <p class="lead section-lead text-center" style="color:orange;"><b>Do you love meeting people?</b></p>
+								 <p class="section-paragraph" style="color:orange;"><i><b>Well, this roulette meal app is for you! Sign up to have a meeting with some new people and new food! Just spin the wheel, do you feel lucky?</b></i></p>
 						 </div>
 				 </div>
 		 </div>
@@ -33,7 +102,7 @@
 											<i class="fa fa-bitcoin fa-stack-1x fa-inverse"></i>
 									</span>
 									<h4 class="service-heading">Buy Tokens</h4>
-									<p class="text-muted">You are given <b>one</b> free token everyday. If you ever run out of tokens, go to the <a href="#"><b>Buy Token</b></a> page!</p>
+									<p class="text-muted">Buy <b>tokens</b> for Good Food, Good Laughs and Great Friends. If you ever run out of tokens, go to the <a href="#"><b>Buy Token</b></a> page!</p>
 							</div>
 							<div class="col-md-4">
 									<span class="fa-stack fa-4x">
