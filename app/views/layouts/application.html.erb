@@ -63,7 +63,7 @@
                <%=link_to 'Buy Spin Token', payments_path, method:"get", data: {'no-turbolink' => true} %>
              </li>
              <li>
-               <a href ="#">Settings</a>
+                # insert link here.
              </li>
              <li>
                 <a href="#menu-toggle" id="menu-toggle">Toggle Menu</a>
@@ -89,7 +89,7 @@
 <!-- end of Simple Sidebar code -->
  <!-- If user is not signed in -->
 <% flash.each do |key, value| %>
- <p class='alert alert-<%= key %>'><%= value %></p>
+ <p class='alert alert-<%= key %> text-center'><%= value %></p>
 <% end %><!-- end of container-fluid -->
 <div class="jumbotron text-center">
   <div class-"container-fluid headerstyle">

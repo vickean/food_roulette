@@ -41,4 +41,5 @@ class User <ActiveRecord::Base
   def default_values
     self.spin_num ||= 0
   end
+
 end

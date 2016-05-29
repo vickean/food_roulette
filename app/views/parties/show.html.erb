@@ -1,56 +1,71 @@
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-<p></p>
-
-<h1>My Party</h1>
-<h4>Id:<%= @party.id %></h4>
-<h4>Restaurant Name:<%=@party.restaurant.name %></h4>
-<h4>Restaurant Latitude:<%=@party.restaurant.latitude %></h4>
-<h4>Restaurant Longitude:<%=@party.restaurant.longitude %></h4>
-<h4>Restaurant Address:<%=@party.restaurant.address %></h4>
-<h4>Restaurant contact number:<%=@party.restaurant.contact_number %></h4>
-<div style='overflow:hidden;height:500px;width:800px;'>
-  <div id='gmap_canvas' style='height:500px;width:800px;'></div>
-  <style>#gmap_canvas img{
-    max-width:none!important;
-    background:none!important
-    }
-  </style>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div  class="col-md-8 col-md-offset-2">
+        <div id='gmap_canvas' style='height:500px;'></div>
+        <style>#gmap_canvas img{
+          max-width:none!important;
+          background:none!important
+          }
+        </style>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<%= link_to "Don't like this party ? You can spin it again!!", new_party_path %>
-
-<%= link_to "This is what I want !!", new_party_booking_path(@party) %><br>
-
-<% @ppl_in_party = Booking.where(party_id: @party.id) %>
-<% @ppl_in_party.each do |x| %>
-	<%= User.find(x.user_id).first_name %><br>
-<% end %>
-
-
-<%= javascript_tag do %>
-
-  function init_map(){
-
-    var myOptions = {
-      zoom:17,center:new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-  map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-
-  marker = new google.maps.Marker({
-    map: map,position: new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>)
-  });
-
-  infowindow = new google.maps.InfoWindow({
-    content:'<strong><%= @party.restaurant.name %></strong><br><%= @party.restaurant.address %><br>'
-  });
-
-  google.maps.event.addListener(marker, 'click', function(){
-    infowindow.open(map,marker);
-  });
-
-  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
-
+<%= javascript_tag do %>  function init_map(){    var myOptions = {
+    zoom:17,center:new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };  map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);  marker = new google.maps.Marker({
+  map: map,position: new google.maps.LatLng(<%= @party.restaurant.latitude %>,<%= @party.restaurant.longitude %>)
+});  infowindow = new google.maps.InfoWindow({
+  content:'<strong><%= @party.restaurant.name %></strong><br><%= @party.restaurant.address %><br>'
+});  google.maps.event.addListener(marker, 'click', function(){
+  infowindow.open(map,marker);
+});  infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);<% end %> <div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="well">
+               <h2 class="muted">Your Party Details</h2>
+               <p><span class="label label-success">NEARBY RESTAURANT</span></p>
+               <ul>
+           <br>
+                            <p><h4><%=@party.restaurant.name %></h4></p>
+                            <br>
+                            <p><h4><%=@party.restaurant.address %></h4></p>
+                            <br>
+               </ul>
+               <hr>
+               <h3><span class="label label-info">Time: 7.00pm</span> </h3>
+               <hr>
+           </div>
+       </div>
+       <div class="col-lg-6">
+           <div class="well">
+               <h2 class="muted">Party Members</h2>
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <div class="carousel-inner">
+     <% @ppl_in_party = Booking.where(party_id: @party.id) %>
+     <% @ppl_in_party.each.with_index do |x, index| %>
+     <% if index == 0 %>
+      <div class="item active">
+     <% else %>
+      <div class='item'>
+      <% end %>
+      <%= image_tag("spinningwheel600.png")%>
+           <div class= "carousel-caption">
+             <div style="height:50px;background-color:rgba(0,0,0,0.5);">
+               <h3><%= User.find(x.user_id).first_name%></h3>
+             </div>
+           <p><%= User.find(x.user_id).description%></p>
+           </div>
+       </div>
+     <%end %>
+   </div>
+   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+   <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><div>
+</div><%= form_for [@party, @booking] do |t| %>
+ <div class="submit-field">
+    <%= t.submit"Booking Details", class:"btn btn-success btn-lg btn-block" %>  </div>
 <% end %>

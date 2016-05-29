@@ -84,6 +84,7 @@ class PartiesController < ApplicationController
   # 	else
 
   def show
+		@booking = Booking.new
   end
 
   def edit

@@ -1,12 +1,80 @@
+<section id="plans">
+        <div class="container">
+            <div class="row padding-to-center">
 
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="panel panel-danger panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-desktop"></i>
+                            <h3><%= image_tag('minilogo.png') %></h3>
+                        </div>
+                        <div class="panel-body text-center buy-box">
+                            <p><strong>1 TOKEN = RM15</strong></p>
+                        </div>
+                        <div class="panel-footer">
+                            <%= link_to "BUY NOW",{:controller => "payments", :action => "new",num_token: '1'}, method: :get, class: 'btn btn-lg btn-block btn-danger'%>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
 
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="panel panel-warning panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-desktop"></i>
+                            <h3><%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %></h3>
+                        </div>
+                        <div class="panel-body text-center buy-box">
+                            <p><strong>2 TOKENS = RM30</strong></p>
+                        </div>
+                        <div class="panel-footer">
+                           <%= link_to "BUY NOW",{:controller => "payments", :action => "new", num_token: '2'}, method: :get, class: 'btn btn-lg btn-block btn-warning'%>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
 
-
-<p><%= link_to "RM15 = 1 token",{:controller => "payments", :action => "new",
-    num_token: '1'}, method: :get%></p><br>
-<p><%= link_to "RM30 = 2 token",{:controller => "payments", :action => "new",
-    num_token: '2'}, method: :get%></p><br>
-<p><%= link_to "RM75 = 5 token",{:controller => "payments", :action => "new",
-    num_token: '5'}, method: :get%></p><br>
-<p><%= link_to "RM150 = 10 token",{:controller => "payments", :action => "new",
-    num_token: '10'}, method: :get%></p><br>
+                <!-- item -->
+                <div class="col-md-3 text-center buy-box">
+                    <div class="panel panel-success panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-desktop"></i>
+                           <h3><%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %></h3>
+                        </div>
+                        <div class="panel-body text-center buy-box">
+                            <p><strong>5 TOKENS = RM70 </strong></p>
+                        </div>
+                        <div class="panel-footer">
+                            <%= link_to "BUY NOW",{:controller => "payments", :action => "new",num_token: '5'}, method: :get, class: 'btn btn-lg btn-block btn-success'%>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
+                <!-- item -->
+                <div class="col-md-3 text-center buy-box">
+                    <div class="panel panel-info panel-pricing">
+                        <div class="panel-heading">
+                            <i class="fa fa-desktop"></i>
+                            <h3><%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %>
+                            <%= image_tag('minilogo.png') %></h3>
+                        </div>
+                        <div class="panel-body text-center buy-box">
+                            <p><strong><span>10 TOKENS = <strike>RM 150</strike><font color="red">RM130 - <span class="label label-warning">Sale</span></font></span></strong></p>
+                        </div>
+                        <div class="panel-footer">
+                           <%= link_to "BUY NOW",{:controller => "payments", :action => "new",num_token: '10'}, method: :get, class: 'btn btn-lg btn-block btn-info'%>
+                        </div>
+                    </div>
+                </div>
+                <!-- /item -->
+            </div>
+        </div>
+    </section>
+    <!-- /Plans -->
