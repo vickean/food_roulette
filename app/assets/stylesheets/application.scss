@@ -32,7 +32,7 @@
 }
 
 body {
-	background: url("/assets/pattern.png");
+	background-image: url(image-path('pattern.png'));
 	background-repeat: no-repeat;
 	height: 100%;
 	width: 100%;
