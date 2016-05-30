@@ -26,7 +26,7 @@ class Clearance::UsersController < ApplicationController
   end
 
   def show
-  
+
    @user = User.find(params[:id])
    # @user = User.new(params[:user])
  end
@@ -87,6 +87,6 @@ class Clearance::UsersController < ApplicationController
 
 
   def permit_params
-    params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :avatar, :address, :city)
+    params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :avatar, :address, :city, :description)
   end
 end

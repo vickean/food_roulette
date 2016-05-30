@@ -1,17 +1,22 @@
-<h2> Eat Food, Meet People, Make Friends</h2>
 
-<%= form_for @party, html: { id: 'party_form' } do |f| %>
-     <p></p>
-     <% f.submit "Spin The Wheel Now" %>
-<% end %>
-<div id="page-content-wrapper">
-       <div class="container-fluid">
-           <div class="row">
-               <div class="col-md-12">
-                   <%= image_tag('spinwheel.png', id:"roulette") %>
-               </div>
-               <div class="col-md-12" id="title"><font weight="bold" color="#fab623 ">Click the wheel above to Spin!</font></div>
-           </div>
-       </div>
-   </div>
+            <%= form_for @party, html: { id: 'party_form' } do |f| %>
+                <p></p>
+                <% f.submit "Spin The Wheel Now" %>
+            <% end %>
+
+        <div class="col-md-6 col-lg-6 col-sm-6 col-md-offset-3 col-sm-offset-3 col-lg-offset-3">
+
+    <div class="container-fluid">
+
+          <div class="row spinpage">
+          <div class="col-md-12 text-center">
+
+          <h2> Eat Food, Meet People, Make Friends</h2>
+          </div>
+            <div class="col-md-12 text-center" id="title"><h3 style="color:orange;">Click the wheel below to Spin!</h3></div>
+              <div class="col-lg-12 text-center">
+                  <%= image_tag('spinwheel.png', id:"roulette") %>
+              </div>
+          </div>
+        </div>
 </div>

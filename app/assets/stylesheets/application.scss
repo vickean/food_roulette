@@ -21,34 +21,409 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 
-/* roulette */
+.well.form-horizontal {
+    margin-top:80px;
+
+}
+
+.headerstyle {
+
+    background-color: #CECECE;
+
+    padding :10px;
+
+}
+
+.textparties {
+
+    text-align: left;
+
+}
+
+.avatar-login {
+
+  position: relative;
+
+  margin-top: 15px;
+
+  z-index: 100;
+
+}
+
+.avatar-login img {
+
+  width: 50px;
+
+  height: 50px;
+
+  -webkit-border-radius: 50%;
+
+  -moz-border-radius: 50%;
+
+  border-radius: 50%;
+
+}
+
+.spinpage {
+  margin-top: 50px;
+  font-family: 'Roboto Slab', sans-serif;
+  color:orange;
+  background-color:rgba(243,243,243, 0.2);
+}
+
+.imgdog {
+  width:350px;
+  height:350px;
+
+}
+
+/*                                                        */
+
+/* Spinning Wheel animation */
+
+/*                                                        */
 
 @-moz-keyframes spin { 100% {-moz-transform: rotate(1080deg); } }
+
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(1080deg); } }
+
 @keyframes spin { 100% {transform: rotate(1080deg); } }
 
-@-moz-keyframes welcomespin { 100% {-moz-transform: rotate(360deg); } }
-@-webkit-keyframes welcomespin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes welcomespin { 100% {transform: rotate(360deg); } }
+#roulette{
 
+  width:500px;
 
-.signedin {
- background: url(image_path("")) no-repeat center center scroll;
-}/* if signed in/ not signed in */
-.img-bg-signed-in {
- height: 800px;
-}.img-btn-box {
- margin-top:60px;
-}
-#img-btn{
- font-family : 'Roboto Slab', san-serif;
- color: white;
+  height:500px;
+
+  margin: 30px 10px 50px 10px;
+
+  align: center;
+
 }
 
-.spinner {}
+.spin {
 
-// stuff for signed in welcome padding-to-center
+  -webkit-animation:spin 4s ease 1;
 
+  -moz-animation:spin 4s ease 1;
+
+  animation:spin 4s ease 1;
+
+}
+
+.spinner {
+
+}
+
+
+
+/*                                                        */
+
+/* Profile page */
+
+/*                                                        */
+
+.user-row {
+
+    margin-bottom: 14px;
+
+}
+
+.user-row:last-child {
+
+    margin-bottom: 0;
+
+}
+
+.dropdown-user {
+
+    margin: 13px 0;
+
+    padding: 5px;
+
+    height: 100%;
+
+}
+
+.dropdown-user:hover {
+
+    cursor: pointer;
+
+}
+
+.table-user-information > tbody > tr {
+
+    border-top: 1px solid rgb(221, 221, 221);
+
+}
+
+.table-user-information > tbody > tr:first-child {
+
+    border-top: 0;
+
+}
+
+.table-user-information > tbody > tr > td {
+
+    border-top: 0;
+
+}
+
+.toppad
+
+{margin-top:20px;
+
+}
+
+
+
+
+
+/*                                                        */
+
+/* Sign in, sign out page */
+
+/*                                                        */
+
+.wrapper {
+
+  margin-top: 80px;
+
+  margin-bottom: 20px;
+
+}
+
+.form-signin {
+
+  max-width: 420px;
+
+  padding: 30px 38px 66px;
+
+  margin: 0 auto;
+
+  background-color: #eee;
+
+  border: 3px dotted rgba(0,0,0,0.1);
+
+  }
+
+.form-signin-heading {
+
+  text-align:center;
+
+  margin-bottom: 30px;
+
+}
+
+.form-control {
+
+  position: relative;
+
+  font-size: 16px;
+
+  height: auto;
+
+  padding: 10px;
+
+}
+
+input[type="text"] {
+
+  margin-bottom: 0px;
+
+  border-bottom-left-radius: 0;
+
+  border-bottom-right-radius: 0;
+
+}
+
+input[type="password"] {
+
+  margin-bottom: 20px;
+
+  border-top-left-radius: 0;
+
+  border-top-right-radius: 0;
+
+}
+
+.colorgraph {
+
+  height: 7px;
+
+  border-top: 0;
+
+  background: #c4e17f;
+
+  border-radius: 5px;
+
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+
+}
+
+.calendar {
+
+margin:.25em 10px 10px 0;
+
+padding-top:5px;
+
+float:left;
+
+width:80px;
+
+background:#ededef;
+
+background:-webkit-gradient(linear,left top,left bottom,from(#ededef),to(#ccc));
+
+background:-moz-linear-gradient(top,#ededef,#ccc);
+
+font:bold 30px/60px Arial Black,Arial,Helvetica,sans-serif;
+
+text-align:center;
+
+color:#000;
+
+text-shadow:#fff 0 1px 0;
+
+-moz-border-radius:3px;
+
+-webkit-border-radius:3px;
+
+border-radius:3px;
+
+position:relative;
+
+-moz-box-shadow:0 2px 2px #888;
+
+-webkit-box-shadow:0 2px 2px #888;
+
+box-shadow:0 2px 2px #888
+
+}
+
+.calendar em {
+
+display:block;
+
+font:normal bold 11px/30px Arial,Helvetica,sans-serif;
+
+color:#fff;
+
+text-shadow:#00365a 0 -1px 0;
+
+background:#04599a;
+
+background:-webkit-gradient(linear,left top,left bottom,from(#04599a),to(#00365a));
+
+background:-moz-linear-gradient(top,#04599a,#00365a);
+
+-moz-border-radius-bottomright:3px;
+
+-webkit-border-bottom-right-radius:3px;
+
+border-bottom-right-radius:3px;
+
+-moz-border-radius-bottomleft:3px;
+
+-webkit-border-bottom-left-radius:3px;
+
+border-bottom-left-radius:3px;
+
+border-top:1px solid #00365a
+
+}
+
+.calendar:before,.calendar:after {
+
+content:'';
+
+float:left;
+
+position:absolute;
+
+top:5px;
+
+width:8px;
+
+height:8px;
+
+background:#111;
+
+z-index:1;
+
+-moz-border-radius:10px;
+
+-webkit-border-radius:10px;
+
+border-radius:10px;
+
+-moz-box-shadow:0 1px 1px #fff;
+
+-webkit-box-shadow:0 1px 1px #fff;
+
+box-shadow:0 1px 1px #fff
+
+}
+
+.calendar:before {
+
+left:11px
+
+}
+
+.calendar:after {
+
+right:11px
+
+}
+
+.calendar em:before,.calendar em:after {
+
+content:'';
+
+float:left;
+
+position:absolute;
+
+top:-5px;
+
+width:4px;
+
+height:14px;
+
+background:#dadada;
+
+background:-webkit-gradient(linear,left top,left bottom,from(#f1f1f1),to(#aaa));
+
+background:-moz-linear-gradient(top,#f1f1f1,#aaa);
+
+z-index:2;
+
+-moz-border-radius:2px;
+
+-webkit-border-radius:2px;
+
+border-radius:2px
+
+}
+
+.calendar em:before {
+
+left:13px
+
+}
+
+.calendar em:after {
+
+right:13px
+
+}
 
 /*                                                        */
 
@@ -112,9 +487,13 @@ section {
 
    height:500px;
 
-      background: url("http://i.imgur.com/1GwdEj8.jpg") no-repeat center center scroll;
-
    padding: 100px 0;
+
+}
+
+.image-bg-fluid-height.signedin {
+
+  background: url(image_path("18newnew.jpg")) no-repeat center center scroll;
 
 }
 
@@ -128,15 +507,15 @@ section {
 
 .img-btn-box {
 
-  margin-top:50px;
+  margin-top:60px;
 
 }
 
-#img-btn-sign-in{
+#img-btn{
 
-}
+  font-family : 'Roboto Slab', san-serif;
 
-#img-btn-sign-up{
+  color: white;
 
 }
 
@@ -146,7 +525,11 @@ section {
 
 /*                                                        */
 
-section{padding:60px 0}
+
+
+section{
+  padding:60px 0
+}
 
 section h2.section-heading{
 
@@ -154,7 +537,7 @@ section h2.section-heading{
 
     font-size:40px;
 
-    margin-top:0;
+    margin-top:30px;
 
     margin-bottom:15px;
 
@@ -190,11 +573,8 @@ p{
 
 p.large{font-size:16px}
 
-a,a:hover,a:focus,a:active,a.active{outline:0}
 
-a{color:#fed136}
 
-a:hover,a:focus,a:active,a.active{color:#fec503}
 
 /*                                                        */
 
@@ -276,13 +656,7 @@ ul.social-buttons li a{
 
 ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
 
-    background-color:#fed136
-
-}
-
-.btn:focus,.btn:active,.btn.active,.btn:active:focus{
-
-    outline:0
+    background-color:#fed136;
 
 }
 
@@ -294,7 +668,7 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 
 footer{
 
-    padding:20px 0;
+    padding:25px 0;
 
     text-align:center;
 
@@ -325,37 +699,6 @@ footer ul.quicklinks{
     text-transform:none;
 
 }
-
-
-
-#roulette{
-	width:500px;
-	height:500px;
-	margin: 30px 10px 50px 10px;
-	align: center;
-}
-
-.welcomespin {
-
-	-webkit-animation:welcomespin 10s linear infinite;
-	-moz-animation:welcomespin 10s linear infinite;
-	animation:welcomespin 10s linear infinite;
-}
-
-.spin {
-
-	-webkit-animation:spin 4s ease 1;
-	-moz-animation:spin 4s ease 1;
-	animation:spin 4s ease 1;
-}
-
-
-
-#title {
-	font-size: 30px;
-	font-color: #393939;
-}
-
 
 
 /* application.html header style */

@@ -2,69 +2,133 @@
 
 <% if @user == current_user || (Preferences.find_by(preferer_id: current_user.id, preferee_id: @user.id).pefer && Preferences.find_by(preferer_id: @user.id, preferee_id: current_user.id).pefer) %>
 
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-
 <div class="container">
 <div class="jumbotron text-center">
 <h1> Welcome to Your Profile </h1>
 
-<div class="avatar">
-	<% if current_user.avatar != nil %>
-		<%=image_tag current_user.avatar%>
-	<% else %>
-		<%=image_tag("empty_avatar.png")%>
-	<% end %>
-</div>
-<br>
 
-<p>
-	<strong>First name:</strong>
-	<%=@user.first_name%>
-</p>
+<div class="container">
+      <div class="row">
+      <div class="col-md-5 toppad pull-right col-md-offset-3 ">
+           <%= link_to 'Edit Profile', edit_user_path %>
+      		 <%= link_to 'Logout', sign_out_path %>
+       <br>
+      </div>
+        <div class="col-sm-10 col-sm-offset-1 toppad" >
+          <div class="panel panel-info">
 
-<p>
-	<strong>Last name:</strong>
-	<%=@user.last_name%>
-</p>
+            <div class="panel-heading">
 
-<p>
-	<strong>Email:</strong>
-	<%=@user.email%>
-</p>
+              <h3 class="panel-title">
+						          Your Profile
+              </h3>
 
-<p>
-	<strong>Gender:</strong>
-	<%=@user.gender%>
-</p>
-<% if current_user == @user %>
-<p>
+            </div>
 
-	<strong>number of spins:</strong>
-	<%= @user.spin_num %>
-</p>
-<%end%>
+            <div class="panel-body">
+
+              <div class="row">
+
+                <div class="col-md-3 col-lg-3 " align="center">
+									<% if current_user.avatar != nil %>
+										<%=image_tag current_user.avatar, :class => "img-circle img-responsive"%>
+									<% else %>
+										<%=image_tag("empty_avatar.png", :class => "img-circle img-responsive")%>
+									<% end %>
+								</div>
+
+
+
+                <div class=" col-md-9 col-lg-9 ">
+
+                  <table class="table table-user-information">
+
+                    <tbody>
+
+                      <tr>
+
+                        <td>First name :</td>
+
+                        <td><%= @user.first_name %></td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>Last name :</td>
+
+                        <td><%= @user.last_name %></td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>Gender</td>
+
+                        <td>
+													<%= @user.gender %>
+												</td>
+
+                      </tr>
+
+
+
+                         <tr>
+
+                             <tr>
+
+                        <td>E-mail</td>
+
+                        <td><%= @user.email %></td>
+
+                      </tr>
+										<% if current_user == @user %>
+                      <tr>
+
+                        <td>Number of Spins	</td>
+
+                        <td><%= @user.spin_num %></td>
+											</tr>
+
+										<% end %>
+                    </tbody>
+
+                  </table>
+                  <a href="#" class="btn btn-primary">Edit Profile</a>
+
+                  <a href="#" class="btn btn-primary">Logout</a>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+
+                     <strong>Location:</strong>
+                     <%= current_user.address %>
+                     <div style='overflow:hidden;height:500px;width:1000px;'>
+                       <div id='gmap_canvas' style='height:500px;width:800px;'></div>
+                       <style>#gmap_canvas img{
+                         max-width:none!important;
+                         background:none!important
+                         }
+                       </style>
+                     </div>
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 </div>
 </div>
 <%else%>
 <p>
-	You dont have premission to view this page
+	You dont have permission to view this page
 </p>
 <%end%>
-
-	<strong>Location:</strong>
-	<%= current_user.address %><br>
-	<div style='overflow:hidden;height:500px;width:1000px;'>
-	  <div id='gmap_canvas' style='height:500px;width:800px;'></div>
-	  <style>#gmap_canvas img{
-	    max-width:none!important;
-	    background:none!important
-	    }
-	  </style>
-	</div>
 
 </div>
 

@@ -34,6 +34,7 @@
                 <br>
                 <p><h4><%=@party.restaurant.address %></h4></p>
                 <br>
+                <p><h4>Party Name: <%= @party.party_name %></h4></p>
                </ul>
                <h3><span class="label label-info">Time: 7.00pm</span> </h3>
                <%= form_for [@party, @booking] do |t| %>
@@ -59,7 +60,9 @@
              <div style="height:50px;background-color:rgba(0,0,0,0.5);">
                <h3><%= User.find(x.user_id).first_name%></h3>
              </div>
+             <div style="height:50px;background-color:rgba(0,0,0,0.5);">
            <p><%= User.find(x.user_id).description%></p>
+           </div>
            </div>
        </div>
      <%end %>

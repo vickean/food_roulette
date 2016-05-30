@@ -1,97 +1,175 @@
+
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
-  <link rel="shortcut icon" href="assets/spinwheel.png" type="image/x-icon" />
- <title>FoodRoulette</title>
- <meta charset="utf-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
- <%= csrf_meta_tags %>
 
- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
- <body data-no-turbolink="true">
-</head><!-- Simple sidebar code --><div id="wrapper">
- <div id="sidebar-wrapper">
-    <div class="sidebar-menu show blk-bg">
-      <a href="menu-toggle" id="menu-toggle"><%= image_tag("minilogo.png")%></a>
-    </div>
-     <ul class="sidebar-nav hide">
-       <li class="sidebar-brand">
-         <a href="#menu-toggle-2" id="menu-toggle-2"><%=image_tag("minilogo.png")%></a>
-       </li>
+  <title>FoodRoulette</title>
 
-       <li>
-         <%= link_to 'Home', root_path %>
-       </li>
-       </li>
-       <% if signed_in? %>
-         <li>
-           <%= link_to 'Sign out', sign_out_path, method: :delete %>
-         </li>
-           <% if current_user.restaurant_owner? %>
-             <li>
-               <%= link_to 'Create listing', new_user_restaurant_path(current_user) %>
-             </li>
-             <li>
-             <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
-             </li>
-             <li>
-                 <%= link_to 'My Profile', user_path(current_user) %>
-             </li>
-             <li>
-                 <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-             </li>
-           <% elsif current_user.admin? %>
-               <li>
-               <%= link_to 'Create listing', new_user_restaurant_path(current_user) %>
-               </li>
-               <li>
-               <%= link_to 'All the listing', restaurants_path %>
-               </li>
-       <% else %>
-             <li>
-               <%= link_to 'SPIN!', new_party_path %>
-             </li>
-             <li>
-               <%= link_to 'My Profile', user_path(current_user) %>
-             </li>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <body data-no-turbolink="true">
+
+</head>
+
+<!-- Simple sidebar code -->
+<div id ="page-content-wrapper">
+
+<div id="wrapper" >
+
+  <div id="sidebar-wrapper">
+
+     <div class="sidebar-menu show">
+
+        <a href="#menu-toggle-2" id="menu-toggle-2"><img src="http://i.imgur.com/FlKkjnT.jpg"></a>
+
+      </div>
+
+      <ul class="sidebar-nav hide">
+
+        <li class="sidebar-brand">
+
+                 <a href="#menu-toggle" id="menu-toggle"><%= image_tag('minilogo.png') %></a>
+
+        </li>
+
+        <li>
+
+          <%= link_to 'Home', root_path %>
+
+        </li>
+
+        <% if signed_in? %>
+
+          <li>
+
+            <%= link_to 'Sign out', sign_out_path, method: :delete %>
+
+          </li>
+
+            <% if current_user.restaurant_owner? %>
+
               <li>
-                <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-             </li>
-             <li>
-               <%=link_to 'Buy Spin Token', payments_path, method:"get", data: {'no-turbolink' => true} %>
-             </li>
-             <% if Booking.where(user_id:current_user.id).last != nil %>
-             <li>
-                <%= link_to 'My Current Party', party_path(Booking.where(user_id:current_user.id).last.party_id) %>
-             </li>
-             <% end %>
-       <% end %>
-     </ul>
-     <% else %>
-       <li>
-       <%= link_to 'Sign in', sign_in_path %>
-       </li>
-       <li>
-        <%= link_to 'Sign up', sign_up_path %>
-       </li>
-       <li>
-        <%= link_to 'Signup with Facebook', '/auth/facebook' %>
-       </li>
-     <% end %>
-   </div>
- </div>
+
+                <%= link_to 'Create listing', new_user_restaurant_path(current_user) %>
+
+              </li>
+
+              <li>
+
+              <%= link_to 'All My restaurant listing', user_restaurants_path(current_user) %>
+
+              </li>
+
+              <li><%= link_to 'Restaurant Profile', user_path(current_user) %></li>
+
+              <li><%= link_to 'Edit Profile', edit_user_path(current_user)%></li>
+
+            <% elsif current_user.admin? %>
+
+                <li>
+
+                <%= link_to 'Create listing', new_user_restaurant_path(current_user) %>
+
+                </li>
+
+                <li>
+
+                <%= link_to 'All the listing', restaurants_path %>
+
+                </li>
+
+                <li>
+
+                <a href ="#">Admin Settings</a>
+
+                </li>
+
+        <% else %>
+
+              <li>
+
+                <%= link_to 'Spin the wheel!', new_party_path %>
+
+              </li>
+
+              <li>
+
+                <%= link_to 'My Profile', user_path(current_user) %>
+
+              </li>
+
+               <li>
+
+                 <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+
+              </li>
+
+              <li>
+
+                <%=link_to 'Buy Spin Token', payments_path, method:"get", data: {'no-turbolink' => true} %>
+
+              </li>
+
+        <% end %>
+
+      </ul>
+
+      <% else %>
+
+        <li>
+
+        <%= link_to 'Sign in', sign_in_path %>
+
+        </li>
+
+        <li>
+
+         <%= link_to 'Sign up', sign_up_path %>
+
+        </li>
+
+        <li>
+
+         <%= link_to 'Signup with Facebook', '/auth/facebook' %>
+
+        </li>
+
+      <% end %>
+
+    </div>
+
 <!-- end of Simple Sidebar code -->
- <!-- If user is not signed in -->
+
 <% flash.each do |key, value| %>
- <p class='alert alert-<%= key %> text-center'><%= value %></p>
-<% end %><!-- end of container-fluid -->
-<div class="jumbotron text-center">
-  <div class-"container-fluid headerstyle">
-    <%= yield %>
- </div>
+
+  <p class='alert alert-<%= key %>'><%= value %></p>
+
+<% end %>
+
+<!-- end of container-fluid -->
+
+  <%= yield %>
+
+
+  </div>
 </div>
-<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+
 </body>
+
 </html>

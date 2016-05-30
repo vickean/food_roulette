@@ -1,45 +1,59 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
-
-  <%= form_for @user do |form| %>
-    <div class="name-field">
-      <%= form.label :first_name, "First_name" %>
-      <%= form.text_field :first_name %>
-    </div>
-
-    <div class="name-field">
-      <%= form.label :last_name, "Last_name" %>
-      <%= form.text_field :last_name %>
-    </div>
-
-    <div class="gender-field">
-      <%= form.label :gender, "Gender" %>
-      <%= form.select :gender, [['Male', 'M'], ['Female', 'F']] %>
-    </div>
-
-    <div class="text-field">
-      <%= form.label :email %>
-      <%= form.text_field :email, type: 'email' %>
-    </div>
-
-    <div class="image-field">
-      <%= form.label :picture %>
-      <%= form.file_field :avatar %>
-    </div>
-
-    <div class="text-field">
-      <%= form.label :address %>
-      <%= form.text_field :address %>
-    </div>
-
-    <div class="text-field">
-      <%= form.label :city %>
-      <%= form.text_field :city %>
-    </div>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
-  <% end %>
+<div id="clearance" class="sign-up"><div class="container">
+<div class="well form-horizontal"> <legend>Edit Profile</legend> <%= form_for @user do |form| %><div class="form-group">
+<label class="col-md-4 control-label">First Name</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<%= form.text_field :first_name, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+<label class="col-md-4 control-label">Last Name</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<%= form.text_field :last_name, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+    <label class="col-md-4 control-label">Gender</label>
+    <div class="col-md-4 inputGroupContainer">
+    <%= form.select :gender, [['Male', 'M'], ['Female', 'F']], :class => "" %>
+  </div></div><div class="form-group">
+<label class="col-md-4 control-label">E-mail</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+<%= form.text_field :email, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+    <label class="col-md-4 control-label">Picture</label>
+    <div class="col-md-4 inputGroupContainer">
+     <%= form.file_field :avatar %>
+  </div></div><div class="form-group">
+<label class="col-md-4 control-label">Address</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+<%= form.text_field :address, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+<label class="col-md-4 control-label">City</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+<%= form.text_field :city, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+<label class="col-md-4 control-label">Description</label>
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<%= form.text_field :description, :class => "form-control" %>
+  </div>
+</div></div><div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-4"> <%=form.submit%>
+<% end %>
+</div>
+</div></form>
+</div>
 </div>
